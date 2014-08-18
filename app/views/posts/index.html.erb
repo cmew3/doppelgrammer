@@ -1,0 +1,11 @@
+
+<% if @posts.any? %>
+	<% @posts.each do |post| %>
+		<%= post.title %>
+		<%= image_tag post.picture1.url, class: 'first_upload' %>
+	<% end %>
+<% else %>
+	<p>No doppelgrammers yet...</p>
+<% end %>
+
+<%=link_to 'Add a post', new_post_path %>
