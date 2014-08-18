@@ -1,12 +1,13 @@
 
 <% if @posts.any? %>
 	<% @posts.each do |post| %>
-		<%= post.title %>
 		<% if post.picture1.present? %>
-			<%= image_tag post.picture1.url, class: 'first_upload' %>
+			<%= image_tag post.picture1.url(:medium), class: 'first_upload' %>
+			<h3><%=post.caption1 %> </h3>
 		<% end %>
 		<% if post.picture2.present? %>
-			<%= image_tag post.picture2.url, class: 'second_upload' %>
+			<%= image_tag post.picture2.url(:medium), class: 'second_upload' %>
+			<h3><%=post.caption2 %> </h3>
 		<% end %>
 	<% end %>
 <% else %>

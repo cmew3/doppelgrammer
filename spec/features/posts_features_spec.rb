@@ -12,13 +12,11 @@ describe 'adding a post' do
 
 		it 'can add a post' do
 			visit new_post_path
-			fill_in 'Title', with: "First doppelgrammer"
 			fill_in 'Caption1', with: "Jack Dee"
 			fill_in 'Caption2', with: "Detective Debug Dave"
-			attach_file 'Picture1', Rails.root.join('spec/images/dave.png')
-			attach_file 'Picture2', Rails.root.join('spec/images/jack.png')
+			attach_file 'First doppelgrammer', Rails.root.join('spec/images/dave.png')
+			attach_file 'Second doppelgrammer', Rails.root.join('spec/images/jack.png')
 			click_button 'Create Post'
-			expect(page).to have_content 'First doppelgrammer'
 			expect(page).to have_css 'img.first_upload'
 			expect(page).to have_css 'img.second_upload'
 			expect(page).to have_content 'Jack Dee'
