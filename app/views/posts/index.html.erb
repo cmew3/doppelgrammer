@@ -1,17 +1,21 @@
-
+<section id='posts-container'>
 <% if @posts.any? %>
-	<% @posts.each do |post| %>
-		<% if post.picture1.present? %>
-			<%= image_tag post.picture1.url(:medium), class: 'first_upload' %>
-			<h3><%=post.caption1 %> </h3>
+	<ul>
+		<% @posts.each do |post| %>
+			<li>
+				<% if post.picture1.present? %>
+					<%= image_tag post.picture1.url(:medium), class: 'first_upload' %>
+					<h3><%=post.caption1 %> </h3>
+				<% end %>
+				<% if post.picture2.present? %>
+					<%= image_tag post.picture2.url(:medium), class: 'second_upload' %>
+					<h3><%=post.caption2 %> </h3>
+				<% end %>
+			</li>
 		<% end %>
-		<% if post.picture2.present? %>
-			<%= image_tag post.picture2.url(:medium), class: 'second_upload' %>
-			<h3><%=post.caption2 %> </h3>
-		<% end %>
-	<% end %>
+	</ul>
 <% else %>
 	<p>No doppelgrammers yet...</p>
 <% end %>
-
+</section>
 <%=link_to 'Add a post', new_post_path %>

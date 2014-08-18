@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'paperclip', github: 'thoughtbot/paperclip'
+gem 'aws-sdk'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use postgresql as the database for Active Record
