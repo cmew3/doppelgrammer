@@ -2,7 +2,12 @@
 <% if @posts.any? %>
 	<% @posts.each do |post| %>
 		<%= post.title %>
-		<%= image_tag post.picture1.url, class: 'first_upload' %>
+		<% if post.picture1.present? %>
+			<%= image_tag post.picture1.url, class: 'first_upload' %>
+		<% end %>
+		<% if post.picture2.present? %>
+			<%= image_tag post.picture2.url, class: 'second_upload' %>
+		<% end %>
 	<% end %>
 <% else %>
 	<p>No doppelgrammers yet...</p>

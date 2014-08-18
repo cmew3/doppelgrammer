@@ -4,8 +4,13 @@
 	<%= f.label :title %>
 	<%= f.text_field :title %>
 
-	<%= f.label :picture1 %>
+	<%= f.label :picture1, 'First doppelgrammer'  %>
 	<%= f.file_field :picture1, html: { multipart: true } %>
+
+	<%= f.text_field :caption1, placeholder: "Name" %>
+
+	<%= f.label :picture2, 'Second doppelgrammer' %>
+	<%= f.file_field :picture2, html: { multipart: true } %>
 
 	<%= f.submit %>
 <% end %>
