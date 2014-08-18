@@ -1,7 +1,7 @@
 <section id='posts-container'>
 <% if @posts.any? %>
 	<ul>
-		<% @posts.each do |post| %>
+		<% @posts.reverse_each do |post| %>
 			<li>
 				<% if post.picture1.present? %>
 					<div id="first_image">
