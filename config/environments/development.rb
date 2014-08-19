@@ -1,14 +1,14 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => 'doppelgrammer',
-      :access_key_id => Rails.application.secrets.s3_access_key_id,
-      :secret_access_key => Rails.application.secrets.s3_secret_access_key_id
-    }
-  }
+  # config.paperclip_defaults = {
+  #   :storage => :s3,
+  #   :s3_credentials => {
+  #     :bucket => 'doppelgrammer',
+  #     :access_key_id => Rails.application.secrets.s3_access_key_id,
+  #     :secret_access_key => Rails.application.secrets.s3_secret_access_key_id
+  #   }
+  # }
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
