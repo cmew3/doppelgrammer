@@ -9,7 +9,7 @@ Post.destroy_all
 Post.create(caption1: 'Jack Dee', caption2: 'Detective Debug Dave',
 									picture1: File.new(Rails.root.join('spec/images/dave.png')),
 									picture2: File.new(Rails.root.join('spec/images/jack.png')),
-									tags: [Tag.create(text: "classic_dave")])
+									tags: [Tag.create(text: "#classic_dave")])
 
 Post.create(caption1: 'Tom Hanks', caption2: 'Thomas Beeley',
 									picture1: File.new(Rails.root.join('spec/images/thomas.png')),
@@ -22,3 +22,7 @@ Post.create(caption1: 'Matt LeBlanc', caption2: 'Marco',
 Post.create(caption1: 'Khal Drogo', caption2: 'Talal',
 									picture1: File.new(Rails.root.join('spec/images/talal.png')),
 									picture2: File.new(Rails.root.join('spec/images/drogo.png')))
+
+Post.create(caption1: 'Gary Barlow', caption2: 'Method Man Charlie',
+									picture1: File.new(Rails.root.join('spec/images/charlie.png')),
+									picture2: File.new(Rails.root.join('spec/images/gary_barlow.png')))
