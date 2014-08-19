@@ -30,6 +30,7 @@ RSpec.describe Post, :type => :model do
 
 
 	context 'tags' do
+		
 		let(:post) do
 			Post.new(caption1: 'test', caption2: 'test',
 							picture1: File.new(Rails.root.join('spec/images/marco.png')),

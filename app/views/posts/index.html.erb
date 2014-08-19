@@ -1,26 +1,7 @@
 <section id='posts-container'>
 <% if @posts.any? %>
 	<ul>
-		<% @posts.reverse_each do |post| %>
-			<li>
-				<% post.tags.each do |tag| %>
-					<%=link_to tag.text, tag %>
-				<% end %>
-				<% if post.picture1.present? %>
-					<div id="first_image">
-					<%= image_tag post.picture1.url(:medium), class: 'first_upload' %>
-					<h3><%=post.caption1 %> </h3>
-					</div>
-				<% end %>
-
-				<% if post.picture2.present? %>
-					<div id="first_image">
-					<%= image_tag post.picture2.url(:medium), class: 'second_upload' %>
-					<h3><%=post.caption2 %> </h3>
-					</div>
-				<% end %>
-			</li>
-		<% end %>
+	<%=render @posts %>
 	</ul>
 <% else %>
 	<p>No doppelgrammers yet...</p>

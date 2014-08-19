@@ -18,3 +18,35 @@ describe 'tagging' do
 		expect(page).to have_link '#swag'
 	end
 end
+
+describe 'filtering by tags' do
+	before(:each) do
+		dave = User.create(email: 'dave@dave.com', password: '12345678', password_confirmation: '12345678')
+		login_as dave
+
+		Post.create(caption1: 'test', caption2: 'test',
+									picture1: File.new(Rails.root.join('spec/images/dave.png')),
+									picture2: File.new(Rails.root.join('spec/images/jack.png')),
+									tag_list: '#mega #ace')
+		Post.create(caption1: 'cheese', caption2: 'cheese',
+									picture1: File.new(Rails.root.join('spec/images/dave.png')),
+									picture2: File.new(Rails.root.join('spec/images/jack.png')),
+									tag_list: '#mega #beans')
+	end
+
+	it 'filters to show posts with selected tag' do
+		visit '/posts'
+		click_link '#ace'
+		expect(page).to have_content 'Posts tagged with #ace'
+		expect(page).to have_content 'test'
+		expect(page).not_to have_content 'cheese'
+	end
+
+
+	it 'filtered tags have pretty URLs' do
+		visit '/tags/ace'
+		expect(page).to have_content 'Posts tagged with #ace'
+		expect(page).to have_content 'test'
+		expect(page).not_to have_content 'cheese'
+	end
+end	
