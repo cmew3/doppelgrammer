@@ -28,4 +28,19 @@ RSpec.describe Post, :type => :model do
 
 	end
 
+
+	context 'tags' do
+		let(:post) do
+			Post.new(caption1: 'test', caption2: 'test',
+							picture1: File.new(Rails.root.join('spec/images/marco.png')),
+							picture2: File.new(Rails.root.join('spec/images/matt-leblanc.png')))
+		end
+
+		it 'can have no tags' do
+			post.tag_list = ""
+			expect(post.tags).to be_empty
+		end
+
+	end
+
 end

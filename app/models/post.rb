@@ -20,4 +20,12 @@ class Post < ActiveRecord::Base
 
   validates :caption1, presence: true, length: {maximum: 30, too_long: "Sorry your caption is too long"}
   validates :caption2, presence: true, length: {maximum: 30, too_long: "Sorry your caption is too long"}
+
+  def tag_list
+  end
+
+  def tag_list=(some_tags)
+
+  end
+
 end
