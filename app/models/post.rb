@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+
+  has_and_belongs_to_many :tags
+
   has_attached_file :picture1, styles: {medium: "220x220#"}, :storage => :s3,
     :s3_credentials => {
       :bucket => 'doppelgrammer',
@@ -25,7 +28,10 @@ class Post < ActiveRecord::Base
   end
 
   def tag_list=(some_tags)
-
+    return if some_tags.empty?
+    some_tags.split(" ").uniq.each do |tag|
+      self.tags << Tag.find_or_create_by(text: tag)
+    end
   end
 
 end

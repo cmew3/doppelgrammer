@@ -41,6 +41,27 @@ RSpec.describe Post, :type => :model do
 			expect(post.tags).to be_empty
 		end
 
+		it 'can have a single tag' do
+			post.tag_list = "#mega"
+			expect(post.tags.first.text).to eq '#mega'
+		end
+
+		it 'can have multiple tags' do
+			post.tag_list = "#mega #ace"
+			expect(post.tags.length).to eq 2
+		end
+
+		it 'does not add repeat tags' do
+			post.tag_list = "#mega #ace #mega"
+			expect(post.tags.length).to eq 2
+		end
+
+		it 'does not recreate existing tags but does assign tag to post' do
+			Tag.create(text: "#ace")
+			post.tag_list = "#mega #ace"
+			expect(Tag.count).to eq 2
+			expect(post.tags.length).to eq 2
+		end
 	end
 
 end
