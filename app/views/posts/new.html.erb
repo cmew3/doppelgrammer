@@ -3,16 +3,16 @@
 <%= form_for @post do |f| %>
 
 	<p><%= f.label :picture1, 'First doppelgrammer'  %>
-	<%= f.file_field :picture1, html: { multipart: true } %>
+	<%= f.file_field :picture1, html: { multipart: true }, required: true %>
 
 	<p><%= f.label :caption1 %>
-	<%= f.text_field :caption1, placeholder: "Name" %>
+	<%= f.text_field :caption1, placeholder: "Name", required: true %>
 
 	<p><%= f.label :picture2, 'Second doppelgrammer' %>
-	<%= f.file_field :picture2, html: { multipart: true } %>
+	<%= f.file_field :picture2, html: { multipart: true }, required: true %>
 
 	<p><%= f.label :caption2 %>
-	<%= f.text_field :caption2, placeholder: "Name" %>
+	<%= f.text_field :caption2, placeholder: "Name", required: true %>
 
 	<p><%= f.submit %>
 <% end %>

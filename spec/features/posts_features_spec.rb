@@ -43,6 +43,7 @@ describe 'adding a post' do
 			expect(page).to have_content 'Jack Dee'
 			expect(page).to have_content "Detective Debug Dave"
 		end
+
 	end
 
 end
