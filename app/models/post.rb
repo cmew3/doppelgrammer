@@ -24,14 +24,21 @@ class Post < ActiveRecord::Base
   validates :caption1, presence: true, length: {maximum: 30, too_long: "Sorry your caption is too long"}
   validates :caption2, presence: true, length: {maximum: 30, too_long: "Sorry your caption is too long"}
 
-  def tag_list
-  end
+  # def tag_list
+  # end
 
-  def tag_list=(some_tags)
-    return if some_tags.empty?
-    some_tags.split(" ").uniq.each do |tag|
-      self.tags << Tag.find_or_create_by(text: tag)
-    end
+  # def tag_list=(some_tags)
+  #   return if some_tags.empty?
+  #   some_tags.split(" ").uniq.each do |tag|
+  #     self.tags << Tag.find_or_create_by(text: tag)
+  #   end
+  # end
+
+  def create_tags
+    tag1='#'+caption2.downcase.delete(' ')
+    tag2='#'+caption1.downcase.delete(' ')
+    self.tags << Tag.find_or_create_by(text: tag1)
+    self.tags << Tag.find_or_create_by(text: tag2)
   end
 
 end

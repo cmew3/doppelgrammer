@@ -8,8 +8,7 @@
 Post.destroy_all
 Post.create(caption1: 'Jack Dee', caption2: 'Detective Debug Dave',
 									picture1: File.new(Rails.root.join('spec/images/dave.png')),
-									picture2: File.new(Rails.root.join('spec/images/jack.png')),
-									tags: [Tag.create(text: "#classic_dave")])
+									picture2: File.new(Rails.root.join('spec/images/jack.png')))
 
 Post.create(caption1: 'Tom Hanks', caption2: 'Thomas Beeley',
 									picture1: File.new(Rails.root.join('spec/images/thomas.png')),
