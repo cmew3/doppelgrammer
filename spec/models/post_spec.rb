@@ -64,6 +64,28 @@ RSpec.describe Post, :type => :model do
 		end
 	end
 
+	context 'counting votes' do
+
+		before(:each) do
+			@post = Post.new(caption1: 'person one', caption2: 'person two',
+							picture1: File.new(Rails.root.join('spec/images/marco.png')),
+							picture2: File.new(Rails.root.join('spec/images/matt-leblanc.png')))
+			@post.votes << Vote.create(direction: 'up')
+			@post.votes << Vote.create(direction: 'up')
+			@post.votes << Vote.create(direction: 'down')
+		end
+
+		it 'can count the upvotes' do
+			expect(@post.count_upvotes).to eq 2
+		end
+
+		it 'can count the downvotes' do
+			expect(@post.count_downvotes).to eq 1
+		end
+
+
+	end
+
 
 
 end

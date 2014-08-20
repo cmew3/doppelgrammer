@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
 
   has_and_belongs_to_many :tags
-
+  has_many :votes
   has_attached_file :picture1, styles: {medium: "220x220#"}, :storage => :s3,
     :s3_credentials => {
       :bucket => 'doppelgrammer',
@@ -33,6 +33,14 @@ class Post < ActiveRecord::Base
     tag2 = '#' + caption1.downcase.delete(' ')
     self.tags << Tag.find_or_create_by(text: tag1)
     self.tags << Tag.find_or_create_by(text: tag2)
+  end
+
+  def count_upvotes
+    self.votes.select { |vote| vote.direction == "up" }.count
+  end
+
+  def count_downvotes
+    self.votes.select { |vote| vote.direction == 'down' }.count
   end
 
 end
