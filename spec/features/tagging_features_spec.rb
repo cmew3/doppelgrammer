@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'tagging' do
 	before(:each) do
-		dave = User.create(email: 'dave@dave.com', password: '12345678', password_confirmation: '12345678')
+		dave = create(:user)
 		login_as dave
 	end
 
@@ -20,15 +20,11 @@ end
 
 describe 'filtering by tags' do
 	before(:each) do
-		dave = User.create(email: 'dave@dave.com', password: '12345678', password_confirmation: '12345678')
+		dave = create(:user)
 		login_as dave
-
-		Post.create(caption1: 'jack', caption2: 'dave',
-									picture1: File.new(Rails.root.join('spec/images/dave.png')),
-									picture2: File.new(Rails.root.join('spec/images/jack.png'))).create_tags
-		Post.create(caption1: 'tom', caption2: 'dave',
-									picture1: File.new(Rails.root.join('spec/images/dave.png')),
-									picture2: File.new(Rails.root.join('spec/images/jack.png'))).create_tags
+		create(:post, caption1: 'jack', caption2: 'dave').create_tags
+		create(:post, caption1: 'tom', caption2: 'dave').create_tags
+	
 	end
 
 	it 'filters to show posts with selected tag' do

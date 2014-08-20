@@ -9,12 +9,10 @@ describe 'votes' do
 
 	context 'when logged in' do
 		before(:each) do
-			dave = User.create(email: 'dave@dave.com', password: '12345678', password_confirmation: '12345678')
+			dave = create(:user)
 			login_as dave
 
-			Post.create(caption1: 'test', caption2: 'test',
-									picture1: File.new(Rails.root.join('spec/images/dave.png')),
-									picture2: File.new(Rails.root.join('spec/images/jack.png'))).create_tags
+			create(:post).create_tags
 		end
 
 		it 'user can vote up a post', js: true do

@@ -41,51 +41,42 @@ RSpec.describe Post, :type => :model do
 		end
 	end
 
-
-	context 'tags' do
+	context 'generating tags' do
 		
-		let(:post) do
-			Post.new(caption1: 'person one', caption2: 'person two',
-							picture1: File.new(Rails.root.join('spec/images/marco.png')),
-							picture2: File.new(Rails.root.join('spec/images/matt-leblanc.png')))
+		let(:post) { create(:post, caption1: 'John Doe', caption2: 'Sarah Bloggs')}
+
+		it 'creates a tag based on the caption text' do
+			post.create_tags
+			expect(Tag.first.text).to eq '#sarahbloggs'
+			expect(Tag.last.text).to eq '#johndoe'
 		end
 
 		it 'does not recreate existing tags but does assign tag to post' do
-			Tag.create(text: "#personone")
+			Tag.create(text: "#johndoe")
 			post.create_tags
 			expect(Tag.count).to eq 2
 			expect(post.tags.length).to eq 2
 		end
 
-		it 'creates a tag based on the caption text' do
-			post.create_tags
-			expect(Tag.first.text).to eq '#persontwo'
-			expect(Tag.last.text).to eq '#personone'
-		end
+
 	end
 
 	context 'counting votes' do
 
+		let(:post) 		{ create(:post) }
 		before(:each) do
-			@post = Post.new(caption1: 'person one', caption2: 'person two',
-							picture1: File.new(Rails.root.join('spec/images/marco.png')),
-							picture2: File.new(Rails.root.join('spec/images/matt-leblanc.png')))
-			@post.votes << Vote.create(direction: 'up')
-			@post.votes << Vote.create(direction: 'up')
-			@post.votes << Vote.create(direction: 'down')
+			2.times {post.votes << Vote.create(direction: 'up')}
+			post.votes << Vote.create(direction: 'down')
 		end
 
 		it 'can count the upvotes' do
-			expect(@post.count_upvotes).to eq 2
+			expect(post.count_upvotes).to eq 2
 		end
 
 		it 'can count the downvotes' do
-			expect(@post.count_downvotes).to eq 1
+			expect(post.count_downvotes).to eq 1
 		end
 
-
 	end
-
-
 
 end
