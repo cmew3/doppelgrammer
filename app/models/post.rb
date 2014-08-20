@@ -29,8 +29,8 @@ class Post < ActiveRecord::Base
             format: { with: /^[A-Za-z\d\s]+$/, :multiline => true, message: "Only numbers, letters and spaces allowed" }
 
   def create_tags
-    tag1='#'+caption2.downcase.delete(' ')
-    tag2='#'+caption1.downcase.delete(' ')
+    tag1 = '#' + caption2.downcase.delete(' ')
+    tag2 = '#' + caption1.downcase.delete(' ')
     self.tags << Tag.find_or_create_by(text: tag1)
     self.tags << Tag.find_or_create_by(text: tag2)
   end

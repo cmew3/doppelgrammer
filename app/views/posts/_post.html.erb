@@ -1,14 +1,13 @@
 
-<li>
-<!-- 	<% post.tags.each do |tag| %>
-		<%=link_to tag.text, tag %>
-	<% end %> -->
+<li>	
 
 	<% if post.picture1.present? %>
 		<div id="first_image">
 		<%= image_tag post.picture1.url(:medium), class: 'first_upload' %>
 		<h3><%=post.caption1 %> </h3>
 		<%= link_to post.tags.first.text, post.tags.first %>
+		<p class = 'doppelyes-count'>0</p>
+		<%= link_to 'doppelYES!', post_votes_path(post, direction: :up), method: :post %>
 		</div>
 	<% end %>
 

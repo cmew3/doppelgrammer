@@ -23,29 +23,27 @@ describe 'filtering by tags' do
 		dave = User.create(email: 'dave@dave.com', password: '12345678', password_confirmation: '12345678')
 		login_as dave
 
-		Post.create(caption1: 'test', caption2: 'test',
+		Post.create(caption1: 'jack', caption2: 'dave',
 									picture1: File.new(Rails.root.join('spec/images/dave.png')),
-									picture2: File.new(Rails.root.join('spec/images/jack.png')),
-									tag_list: '#jack #dave')
-		Post.create(caption1: 'cheese', caption2: 'cheese',
+									picture2: File.new(Rails.root.join('spec/images/jack.png'))).create_tags
+		Post.create(caption1: 'tom', caption2: 'dave',
 									picture1: File.new(Rails.root.join('spec/images/dave.png')),
-									picture2: File.new(Rails.root.join('spec/images/jack.png')),
-									tag_list: '#mega #beans')
+									picture2: File.new(Rails.root.join('spec/images/jack.png'))).create_tags
 	end
 
-	xit 'filters to show posts with selected tag' do
+	it 'filters to show posts with selected tag' do
 		visit '/posts'
-		click_link '#ace'
-		expect(page).to have_content 'Posts tagged with #ace'
-		expect(page).to have_content 'test'
-		expect(page).not_to have_content 'cheese'
+		click_link '#jack'
+		expect(page).to have_content 'Posts tagged with #jack'
+		expect(page).to have_content 'dave'
+		expect(page).not_to have_content 'tom'
 	end
 
 
-	xit 'filtered tags have pretty URLs' do
-		visit '/tags/ace'
-		expect(page).to have_content 'Posts tagged with #ace'
-		expect(page).to have_content 'test'
-		expect(page).not_to have_content 'cheese'
+	it 'filtered tags have pretty URLs' do
+		visit '/tags/jack'
+		expect(page).to have_content 'Posts tagged with #jack'
+		expect(page).to have_content 'dave'
+		expect(page).not_to have_content 'tom'
 	end
 end	

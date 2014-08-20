@@ -26,14 +26,14 @@ RSpec.describe Post, :type => :model do
 			expect(Post.count).to eq 0
 		end
 
-		it 'cannot have punctuation or special chars in a caption' do
+		it 'cannot have punctuation in a caption' do
 			post = Post.new(caption1: 'test, test', caption2: 'test',
 											picture1: File.new(Rails.root.join('spec/images/marco.png')),
 											picture2: File.new(Rails.root.join('spec/images/matt-leblanc.png')))
 			expect(post).to have(1).error_on(:caption1)
 		end
 
-		it 'cannot have punctuation or special chars in a caption' do
+		it 'cannot have special chars in a caption' do
 			post = Post.new(caption1: 'test', caption2: '#test',
 											picture1: File.new(Rails.root.join('spec/images/marco.png')),
 											picture2: File.new(Rails.root.join('spec/images/matt-leblanc.png')))
@@ -63,5 +63,7 @@ RSpec.describe Post, :type => :model do
 			expect(Tag.last.text).to eq '#personone'
 		end
 	end
+
+
 
 end
