@@ -5,7 +5,7 @@ describe 'adding a post' do
 		before(:each) do
 			Post.create(caption1: 'test', caption2: 'test',
 									picture1: File.new(Rails.root.join('spec/images/dave.png')),
-									picture2: File.new(Rails.root.join('spec/images/jack.png')))
+									picture2: File.new(Rails.root.join('spec/images/jack.png'))).create_tags
 		end
 
 		it 'can view doppelgrammers but cannot add a post without signing in' do

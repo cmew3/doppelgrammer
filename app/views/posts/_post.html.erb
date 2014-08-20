@@ -1,12 +1,14 @@
 
 <li>
-	<% post.tags.each do |tag| %>
+<!-- 	<% post.tags.each do |tag| %>
 		<%=link_to tag.text, tag %>
-	<% end %>
+	<% end %> -->
+
 	<% if post.picture1.present? %>
 		<div id="first_image">
 		<%= image_tag post.picture1.url(:medium), class: 'first_upload' %>
 		<h3><%=post.caption1 %> </h3>
+		<%= link_to post.tags.first.text, post.tags.first %>
 		</div>
 	<% end %>
 
@@ -14,6 +16,7 @@
 		<div id="first_image">
 		<%= image_tag post.picture2.url(:medium), class: 'second_upload' %>
 		<h3><%=post.caption2 %> </h3>
+		<%= link_to post.tags.last.text, post.tags.last %>
 		</div>
 	<% end %>
 </li>

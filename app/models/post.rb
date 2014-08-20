@@ -21,18 +21,12 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :picture2, :content_type => /\Aimage\/.*\Z/
   validates :picture2, presence: true
 
-  validates :caption1, presence: true, length: {maximum: 30, too_long: "Sorry your caption is too long"}
-  validates :caption2, presence: true, length: {maximum: 30, too_long: "Sorry your caption is too long"}
-
-  # def tag_list
-  # end
-
-  # def tag_list=(some_tags)
-  #   return if some_tags.empty?
-  #   some_tags.split(" ").uniq.each do |tag|
-  #     self.tags << Tag.find_or_create_by(text: tag)
-  #   end
-  # end
+  validates :caption1, presence: true,
+            length: {maximum: 30, too_long: "Sorry your caption is too long"},
+            format: { with: /^[A-Za-z\d\s]+$/, :multiline => true, message: "Only numbers, letters and spaces allowed" } 
+  validates :caption2, presence: true,
+            length: {maximum: 30, too_long: "Sorry your caption is too long"},
+            format: { with: /^[A-Za-z\d\s]+$/, :multiline => true, message: "Only numbers, letters and spaces allowed" }
 
   def create_tags
     tag1='#'+caption2.downcase.delete(' ')

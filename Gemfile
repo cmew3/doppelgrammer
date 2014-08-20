@@ -34,7 +34,8 @@ group :development, :test do
 	gem 'capybara'
 	gem 'warden'
 	gem 'rspec-collection_matchers'
-	
+	gem 'poltergeist'
+	gem 'database_cleaner'
 end
 
 gem 'rails_12factor', group: :production

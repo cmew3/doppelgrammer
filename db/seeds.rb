@@ -8,20 +8,20 @@
 Post.destroy_all
 Post.create(caption1: 'Jack Dee', caption2: 'Detective Debug Dave',
 									picture1: File.new(Rails.root.join('spec/images/dave.png')),
-									picture2: File.new(Rails.root.join('spec/images/jack.png')))
+									picture2: File.new(Rails.root.join('spec/images/jack.png'))).create_tags
 
 Post.create(caption1: 'Tom Hanks', caption2: 'Thomas Beeley',
 									picture1: File.new(Rails.root.join('spec/images/thomas.png')),
-									picture2: File.new(Rails.root.join('spec/images/tom-hanks.png')))
+									picture2: File.new(Rails.root.join('spec/images/tom-hanks.png'))).create_tags
 
 Post.create(caption1: 'Matt LeBlanc', caption2: 'Marco',
 									picture1: File.new(Rails.root.join('spec/images/marco.png')),
-									picture2: File.new(Rails.root.join('spec/images/matt-leblanc.png')))
+									picture2: File.new(Rails.root.join('spec/images/matt-leblanc.png'))).create_tags
 
 Post.create(caption1: 'Khal Drogo', caption2: 'Talal',
 									picture1: File.new(Rails.root.join('spec/images/talal.png')),
-									picture2: File.new(Rails.root.join('spec/images/drogo.png')))
+									picture2: File.new(Rails.root.join('spec/images/drogo.png'))).create_tags
 
 Post.create(caption1: 'Gary Barlow', caption2: 'Method Man Charlie',
 									picture1: File.new(Rails.root.join('spec/images/charlie.png')),
-									picture2: File.new(Rails.root.join('spec/images/gary_barlow.png')))
+									picture2: File.new(Rails.root.join('spec/images/gary_barlow.png'))).create_tags
