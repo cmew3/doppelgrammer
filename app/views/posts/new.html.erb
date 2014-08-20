@@ -6,13 +6,13 @@
 	<%= f.file_field :picture1, html: { multipart: true }, required: true %>
 
 	<p><%= f.label :caption1 %>
-	<%= f.text_field :caption1, placeholder: "Name", required: true %>
+	<%= f.text_field :caption1, placeholder: "Name for second image", required: true %>
 
 	<p><%= f.label :picture2, 'Second doppelgrammer' %>
 	<%= f.file_field :picture2, html: { multipart: true }, required: true %>
 
 	<p><%= f.label :caption2 %>
-	<%= f.text_field :caption2, placeholder: "Name", required: true %>
+	<%= f.text_field :caption2, placeholder: "Name for first image", required: true %>
 
 	<p><%= f.submit %>
 <% end %>

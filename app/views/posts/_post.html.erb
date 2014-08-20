@@ -1,22 +1,23 @@
 
 <li>	
 
+	<div>
+		<div class='doppelYES'>
+			<p class = 'doppel-count yes-count'><%= post.count_upvotes %></p>
+			<%= link_to 'doppelYES!', post_votes_path(post, direction: 'up'), class: 'doppel-link' %>
+		</div>
+
+		<div class='doppelNO'>
+			<p class = 'doppel-count no-count'><%= post.count_downvotes %></p>
+			<%= link_to 'doppelNO!', post_votes_path(post, direction: 'down'), class: 'doppel-link' %>
+		</div>
+	</div>
+
 	<% if post.picture1.present? %>
 		<div id="first_image">
 			<%= image_tag post.picture1.url(:medium), class: 'first_upload' %>
 			<h3><%=post.caption1 %> </h3>
 			<%= link_to post.tags.first.text, post.tags.first %>
-
-			<div class='doppelYES'>
-				<p class = 'doppel-count yes-count'><%= post.count_upvotes %></p>
-				<%= link_to 'doppelYES!', post_votes_path(post, direction: 'up'), class: 'doppel-link' %>
-			</div>
-
-			<div class='doppelNO'>
-				<p class = 'doppel-count no-count'><%= post.count_downvotes %></p>
-				<%= link_to 'doppelNO!', post_votes_path(post, direction: 'down'), class: 'doppel-link' %>
-			</div>
-
 		</div>
 	<% end %>
 
