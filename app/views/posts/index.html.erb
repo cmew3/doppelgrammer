@@ -1,7 +1,7 @@
 <section id='posts-container'>
 <% if @posts.any? %>
 	<ul>
-	<%=render @posts %>
+	<%=render @posts.sort_by { |post| post.count_netvotes }.reverse %>
 	</ul>
 <% else %>
 	<p>No doppelgrammers yet...</p>

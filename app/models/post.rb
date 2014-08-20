@@ -43,4 +43,8 @@ class Post < ActiveRecord::Base
     self.votes.select { |vote| vote.direction == 'down' }.count
   end
 
+  def count_netvotes
+    self.count_upvotes - self.count_downvotes
+  end
+
 end

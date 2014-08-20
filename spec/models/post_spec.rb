@@ -77,6 +77,10 @@ RSpec.describe Post, :type => :model do
 			expect(post.count_downvotes).to eq 1
 		end
 
+		it 'can count the difference between up and down votes' do
+			expect(post.count_netvotes).to eq 1
+		end
+
 	end
 
 end
