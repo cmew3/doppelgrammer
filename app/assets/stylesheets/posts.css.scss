@@ -2,26 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#posts-container {
-	width: 600px;
-	margin: 0 auto;
-
+.grid-box {
+	padding: 5px;
 }
-
-#posts-container li {
-	display: flex;
-	justify-content: space-around;
-	margin: 10px;
-}
-
-#posts-container img {
-	padding: 2 5px;
-	margin: 2 5px;
-	border-radius: 6px;
-}
-
-#posts-container h3 {
-	text-align: center;
-	margin-top: 3px;
-}
-  

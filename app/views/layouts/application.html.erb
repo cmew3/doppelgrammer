@@ -1,25 +1,71 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Doppelgrammer</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
 
-<header>
-	Doppelgrammer
-</header>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<section id="body-container">
+    <title>Doppelgrammer</title>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  	<%= csrf_meta_tags %>
+  </head>
 
-	<%= yield %>
+  <body>
 
-</section>
+    <div class="container">
+    	<!-- <header>
+	      <nav class="navbar navbar-default navbar-fixed-top" role='navigation'>
+	      	<div class='container'>
+		      	<div class='navbar-header'>
+		      		<%= link_to "Doppelgrammer", root_path, class: 'navbar-brand' %>
+		      	</div>
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-</body>
-</html>
+		      	<div>
+			        <ul class="nav nav-pills pull-right">
+			          <li class="active"><%=link_to 'Add a Doppelgrammer', new_post_path %></li>
+			          <% if user_signed_in? %>
+			          	<li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+			          <% else %>
+				          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+				          <li><%= link_to 'Sign In', new_user_session_path %></li>
+				        <% end %>
+			        </ul>
+			      </div>
+		      </div>
+	      </nav>
+      </header> -->
+
+      <div class="header doppelheader">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><%=link_to 'Add a Doppelgrammer', new_post_path %></li>
+          <% if user_signed_in? %>
+	        	<li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+	        <% else %>
+	          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+	          <li><%= link_to 'Sign In', new_user_session_path %></li>
+	        <% end %>
+        </ul>
+        <h3 class="text-muted"><%= link_to "Doppelgrammer", root_path %></h3>
+      </div>
+
+
+		  <p class="notice"><%= notice %></p>
+		  <p class="alert"><%= alert %></p>
+
+			<%= yield %>
+
+      <div class="footer">
+        <p>© ChazAndDave 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+</body></html>

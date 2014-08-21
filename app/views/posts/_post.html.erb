@@ -1,33 +1,47 @@
+<section class='row post-row'>	
 
-<li>	
 
-	<div>
-		<div class='doppelYES'>
-			<p class = 'doppel-count yes-count'><%= post.count_upvotes %></p>
-			<%= link_to 'doppelYES!', post_votes_path(post, direction: 'up'), class: 'doppel-link' %>
+	<% if post.picture1.present? %>
+		<div class='grid-box col-md-5 col-sm-3'>
+			<div class='img-thumbnail'>
+				<%= image_tag post.picture1.url(:medium), class: 'first_upload img-responsive' %>
+			<h3><%=post.caption1 %> </h3>
+			<%= link_to post.tags.first.text, post.tags.first %>
+			</div>
 		</div>
+	<% end %>
 
-		<div class='doppelNO'>
-			<p class = 'doppel-count no-count'><%= post.count_downvotes %></p>
-			<%= link_to 'doppelNO!', post_votes_path(post, direction: 'down'), class: 'doppel-link' %>
+		<div class='col-md-2'>
+		<div class="voting-box">
+			<div class='doppelYES'>
+				
+				<span class = 'doppel-count yes-count'><%= post.count_upvotes %></span>
+
+		   <%= link_to post_votes_path(post, direction: 'up'), class: 'doppel-link' do %>
+					<span class="glyphicon glyphicon-thumbs-up">
+				<% end %>
+			</div>
+
+			<div class='doppelNO'>
+				<span class = 'doppel-count no-count'><%= post.count_downvotes %></span>
+				<%= link_to post_votes_path(post, direction: 'down'), class: 'doppel-link' do %>
+					<span class="glyphicon glyphicon-thumbs-down">
+				<% end %>
+				
+			</div>
 		</div>
 	</div>
 
-	<% if post.picture1.present? %>
-		<div id="first_image">
-			<%= image_tag post.picture1.url(:medium), class: 'first_upload' %>
-			<h3><%=post.caption1 %> </h3>
-			<%= link_to post.tags.first.text, post.tags.first %>
-		</div>
-	<% end %>
-
 	<% if post.picture2.present? %>
-		<div id="first_image">
-		<%= image_tag post.picture2.url(:medium), class: 'second_upload' %>
-		<h3><%=post.caption2 %> </h3>
-		<%= link_to post.tags.last.text, post.tags.last %>
+		<div class='grid-box col-md-5 col-sm-3'>
+			<div class='img-thumbnail'>
+				<%= image_tag post.picture2.url(:medium), class: 'second_upload img-responsive' %>
+			<h3><%=post.caption2 %> </h3>
+			<%= link_to post.tags.last.text, post.tags.last %>
+			</div>
 		</div>
 	<% end %>
 
 
-</li>
+
+</section>

@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
 
   has_and_belongs_to_many :tags
   has_many :votes
-  has_attached_file :picture1, styles: {medium: "220x220#"}, :storage => :s3,
+  has_attached_file :picture1, styles: {medium: "300x300#"}, :storage => :s3,
     :s3_credentials => {
       :bucket => 'doppelgrammer',
       :access_key_id => Rails.application.secrets.s3_access_key_id,
@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :picture1, :content_type => /\Aimage\/.*\Z/
   validates :picture1, presence: true
 
-  has_attached_file :picture2, styles: {medium: "220x220#"}, :storage => :s3, :s3_credentials => {
+  has_attached_file :picture2, styles: {medium: "300x300#"}, :storage => :s3, :s3_credentials => {
       :bucket => 'doppelgrammer',
       :access_key_id => Rails.application.secrets.s3_access_key_id,
       :secret_access_key => Rails.application.secrets.s3_secret_access_key_id

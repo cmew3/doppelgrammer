@@ -14,7 +14,31 @@
  *= require_self
  */
 
- @font-face {
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.container {
+	width: 60%;
+	
+}
+
+span.glyphicon {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.doppelYES, .doppelNO {
+    text-align: center;
+}
+
+.post-row{
+	float: center;
+}
+
+
+
+
+/* @font-face {
     font-family: 'orange_juiceregular';
     src: font-url('orange_juice_2.0-webfont.eot');
     src: font-url('orange_juice_2.0-webfont.eot?#iefix') format('embedded-opentype'),
@@ -42,11 +66,13 @@ header {
 	font-size: 80px;
 }
 
-#body-container {
-	margin-top: 150px;
+header a {
+	text-decoration: none;
+	font-family: 'orange_juiceregular', Helvetica;
+	font-size: 80px;
+	color: inherit;
 }
 
-
-
-
-
+#body-container {
+	margin-top: 150px;
+}*/

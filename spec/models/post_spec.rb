@@ -5,9 +5,8 @@ RSpec.describe Post, :type => :model do
 	context 'validations' do
 	    it 'is invalid with no caption' do
 			post = Post.new(caption1: 'test',
-									picture1: File.new(Rails.root.join('spec/images/marco.png')),
-									picture2: File.new(Rails.root.join('spec/images/matt-leblanc.png')))
-			expect(post).to have(2).errors_on(:caption2)
+							picture1: File.new(Rails.root.join('spec/images/marco.png')),
+							picture2: File.new(Rails.root.join('spec/images/matt-leblanc.png')))
 		end
 
 		it 'is invalid if caption is longer than 30 chars' do

@@ -10,7 +10,7 @@ describe 'adding a post' do
 		it 'can view doppelgrammers but cannot add a post without signing in' do
 			visit '/posts'
 			expect(page).to have_content 'test'
-			click_link 'Add a post'
+			click_link 'Add a Doppelgrammer'
 			expect(current_path).to eq new_user_session_path
 		end 
 	end
@@ -25,7 +25,7 @@ describe 'adding a post' do
 		it 'prompts user to add a post' do
 			visit '/posts'
 			expect(page).to have_content "No doppelgrammers yet..."
-			click_link 'Add a post'
+			click_link 'Add a Doppelgrammer'
 			expect(current_path).to eq new_post_path
 			expect(page).to have_content 'Upload your doppelgrammers'
 		end
