@@ -27,16 +27,16 @@ describe 'adding a post' do
 			expect(page).to have_content "No doppelgrammers yet..."
 			click_link 'Add a Doppelgrammer'
 			expect(current_path).to eq new_post_path
-			expect(page).to have_content 'Upload your doppelgrammers'
+			expect(page).to have_content 'First doppelgrammer'
 		end
 
 		it 'can add a post' do
 			visit new_post_path
-			fill_in 'Caption1', with: "Jack Dee"
-			fill_in 'Caption2', with: "Detective Debug Dave"
+			fill_in 'post_caption1', with: "Jack Dee"
+			fill_in 'post_caption2', with: "Detective Debug Dave"
 			attach_file 'First doppelgrammer', Rails.root.join('spec/images/dave.png')
 			attach_file 'Second doppelgrammer', Rails.root.join('spec/images/jack.png')
-			click_button 'Create Post'
+			click_button 'Submit'
 			expect(page).to have_css 'img.first_upload'
 			expect(page).to have_css 'img.second_upload'
 			expect(page).to have_content 'Jack Dee'

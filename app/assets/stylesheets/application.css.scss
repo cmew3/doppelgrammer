@@ -35,10 +35,54 @@ span.glyphicon {
 	float: center;
 }
 
+.checkbox-shift-right {
+	padding-left: 20px;
+}
 
+.header {
+	margin-bottom: 60px;
+}
 
+#logo {
+	font-family: 'orange_juiceregular', Helvetica;
+	font-size: 70px;
+	text-decoration: none;
+}
 
-/* @font-face {
+#logo a:hover {
+	text-decoration: none;
+	color: #346FA1;
+}
+
+.img-thumbnail{
+	padding: 25px;
+}
+
+.post-container {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.header-container {
+	width: 80%;
+}
+
+.nav {
+	padding-top: 20px;
+padding-right: 38px;
+}
+
+.voting-box {
+	padding-top: 100px;
+}
+
+.doppel-count {
+color: #428bca;
+font-size: 21px;
+padding: 10px;
+}
+
+ @font-face {
     font-family: 'orange_juiceregular';
     src: font-url('orange_juice_2.0-webfont.eot');
     src: font-url('orange_juice_2.0-webfont.eot?#iefix') format('embedded-opentype'),
@@ -49,30 +93,3 @@ span.glyphicon {
     font-style: normal;
 }
 
-* {
-	box-sizing: border-box;
-	font-family: Helvetica;
-}
-
-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	text-align: center;
-	padding: 5px;
-	background-color: lightgreen;
-	font-family: 'orange_juiceregular', Helvetica;
-	font-size: 80px;
-}
-
-header a {
-	text-decoration: none;
-	font-family: 'orange_juiceregular', Helvetica;
-	font-size: 80px;
-	color: inherit;
-}
-
-#body-container {
-	margin-top: 150px;
-}*/

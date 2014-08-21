@@ -1,18 +1,22 @@
-<h2>Upload your doppelgrammers</h2>
-
 <%= form_for @post do |f| %>
 
-	<p><%= f.label :picture1, 'First doppelgrammer'  %>
-	<%= f.file_field :picture1, html: { multipart: true }, required: true %>
+	<div class="form-group">
+		<h3><%= f.label :picture1, 'First doppelgrammer'  %></h3>
+		<%= f.file_field :picture1, html: { multipart: true }, required: true %>
+	</div>
 
-	<p><%= f.label :caption1 %>
-	<%= f.text_field :caption1, placeholder: "Name for second image", required: true %>
+	<div class="form-group">
+		<%= f.text_field :caption1, placeholder: "Name", required: true, class: "form-control" %>
+	</div>
 
-	<p><%= f.label :picture2, 'Second doppelgrammer' %>
-	<%= f.file_field :picture2, html: { multipart: true }, required: true %>
+	<div class="form-group">
+		<h3><%= f.label :picture2, 'Second doppelgrammer' %></h3>
+		<%= f.file_field :picture2, html: { multipart: true }, required: true %>
+	</div>
 
-	<p><%= f.label :caption2 %>
-	<%= f.text_field :caption2, placeholder: "Name for first image", required: true %>
+	<div class="form-group">
+		<%= f.text_field :caption2, placeholder: "Name", required: true, class: "form-control" %>
+	</div>
 
-	<p><%= f.submit %>
+	<div class="form-group"><%= f.submit "Submit", class: 'btn btn-default' %></div>
 <% end %>

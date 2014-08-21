@@ -7,6 +7,7 @@ gem 'factory_girl_rails'
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'launchy'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'

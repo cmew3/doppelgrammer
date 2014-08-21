@@ -18,14 +18,14 @@ describe 'votes' do
 		it 'user can vote up a post', js: true do
 			visit '/posts'
 			expect(page).to have_css('.yes-count', text: '0')
-			click_link 'doppelYES!'
+			find(".doppelYES-link").click
 			expect(page).to have_css('.yes-count', text: '1')
 		end
 
 		it 'user can vote down a post', js: true do
 			visit '/posts'
 			expect(page).to have_css('.no-count', text: '0')
-			click_link 'doppelNO!'
+			find(".doppelNO-link").click
 			expect(page).to have_css('.no-count', text: '1')
 		end
 	end

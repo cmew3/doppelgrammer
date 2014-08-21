@@ -1,3 +1,5 @@
+
+<section class="post-container">
 <section class='row post-row'>	
 
 
@@ -17,14 +19,14 @@
 				
 				<span class = 'doppel-count yes-count'><%= post.count_upvotes %></span>
 
-		   <%= link_to post_votes_path(post, direction: 'up'), class: 'doppel-link' do %>
+		   <%= link_to post_votes_path(post, direction: 'up'), class: 'doppel-link doppelYES-link' do %>
 					<span class="glyphicon glyphicon-thumbs-up">
 				<% end %>
 			</div>
 
 			<div class='doppelNO'>
 				<span class = 'doppel-count no-count'><%= post.count_downvotes %></span>
-				<%= link_to post_votes_path(post, direction: 'down'), class: 'doppel-link' do %>
+				<%= link_to post_votes_path(post, direction: 'down'), class: 'doppel-link doppelNO-link' do %>
 					<span class="glyphicon glyphicon-thumbs-down">
 				<% end %>
 				
@@ -44,4 +46,5 @@
 
 
 
+</section>
 </section>

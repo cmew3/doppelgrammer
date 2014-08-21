@@ -8,11 +8,11 @@ describe 'tagging' do
 
 	it 'displays tags as links on posts' do
 		visit new_post_path
-		fill_in 'Caption1', with: "Jack Dee"
-		fill_in 'Caption2', with: "Detective Debug Dave"
+		fill_in 'post_caption1', with: "Jack Dee"
+		fill_in 'post_caption2', with: "Detective Debug Dave"
 		attach_file 'First doppelgrammer', Rails.root.join('spec/images/dave.png')
 		attach_file 'Second doppelgrammer', Rails.root.join('spec/images/jack.png')
-		click_button 'Create Post'
+		click_button 'Submit'
 		expect(page).to have_link '#detectivedebugdave'
 		expect(page).to have_link '#jackdee'
 	end

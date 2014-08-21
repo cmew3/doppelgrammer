@@ -13,29 +13,8 @@
 
   <body>
 
-    <div class="container">
-    	<!-- <header>
-	      <nav class="navbar navbar-default navbar-fixed-top" role='navigation'>
-	      	<div class='container'>
-		      	<div class='navbar-header'>
-		      		<%= link_to "Doppelgrammer", root_path, class: 'navbar-brand' %>
-		      	</div>
 
-		      	<div>
-			        <ul class="nav nav-pills pull-right">
-			          <li class="active"><%=link_to 'Add a Doppelgrammer', new_post_path %></li>
-			          <% if user_signed_in? %>
-			          	<li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-			          <% else %>
-				          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-				          <li><%= link_to 'Sign In', new_user_session_path %></li>
-				        <% end %>
-			        </ul>
-			      </div>
-		      </div>
-	      </nav>
-      </header> -->
-
+  <div class='container header-container'>
       <div class="header doppelheader">
         <ul class="nav nav-pills pull-right">
           <li class="active"><%=link_to 'Add a Doppelgrammer', new_post_path %></li>
@@ -46,16 +25,16 @@
 	          <li><%= link_to 'Sign In', new_user_session_path %></li>
 	        <% end %>
         </ul>
-        <h3 class="text-muted"><%= link_to "Doppelgrammer", root_path %></h3>
+        <h3 class="text-muted" id="logo"><%= link_to "Doppelgrammer", root_path %></h3>
       </div>
 
-
-		  <p class="notice"><%= notice %></p>
-		  <p class="alert"><%= alert %></p>
+      </div>
+          <div class="container">
+    
 
 			<%= yield %>
 
-      <div class="footer">
+      <div class="footer navbar-fixed-bottom">
         <p>© ChazAndDave 2014</p>
       </div>
 
