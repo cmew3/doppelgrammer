@@ -25,3 +25,7 @@ Post.create(caption1: 'Khal Drogo', caption2: 'Talal',
 Post.create!(caption1: 'Gary Barlow', caption2: 'Method Man Charlie',
 									picture1: File.new(Rails.root.join('spec/images/Charlie.jpg')),
 									picture2: File.new(Rails.root.join('spec/images/gary_barlow.png'))).create_tags
+
+Post.create!(caption1: 'King George V', caption2: 'Eddie',
+									picture1: File.new(Rails.root.join('spec/images/eddie.png')),
+									picture2: File.new(Rails.root.join('spec/images/king_george_v.jpg'))).create_tags
