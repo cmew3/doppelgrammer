@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140826125844) do
     t.datetime "picture2_updated_at"
     t.string   "caption1"
     t.string   "caption2"
-    t.integer  "hire_charge"
+    t.integer  "hire_charge",           default: 50
   end
 
   create_table "posts_tags", id: false, force: true do |t|

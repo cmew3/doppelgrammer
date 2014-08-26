@@ -28,6 +28,10 @@ class Post < ActiveRecord::Base
             length: {maximum: 30, too_long: "Sorry your caption is too long"},
             format: { with: /^[A-Za-z\d\s]+$/, :multiline => true, message: "Only numbers, letters and spaces allowed" }
 
+  validates :hire_charge, numericality: { only_integer: true, greater_than: 0 }
+
+
+
   def create_tags
     tag1 = '#' + caption2.downcase.delete(' ')
     tag2 = '#' + caption1.downcase.delete(' ')

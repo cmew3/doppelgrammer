@@ -1,13 +1,17 @@
+<h3>Hire <%=@post.caption2%> to come to your event dressed as <%=@post.caption1%></h3>
+
 <%= form_tag post_charges_path(@post) do %>
   <article>
     <label class="amount">
-      <span>Amount: $5.00</span>
+      <span>Amount: £<%=@post.hire_charge%></span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"></script>
+          data-description="Doppelgrammer hire charge"
+          data-currency="gbp"
+          data-image=<%=@post.picture1%>
+          data-amount=<%=@post.hire_charge*100%>></script>
 <% end %>
 

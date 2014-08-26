@@ -82,4 +82,26 @@ RSpec.describe Post, :type => :model do
 
 	end
 
+	context 'hire charges' do
+
+	   it 'is invalid as text' do
+			post = Post.new(caption1: 'test', caption2: 'test2',
+							picture1: File.new(Rails.root.join('spec/images/marco.png')),
+							picture2: File.new(Rails.root.join('spec/images/matt-leblanc.png')),
+							hire_charge: "text"
+							)
+			expect(post).to have(1).error_on(:hire_charge)
+		end
+
+		it 'is invalid as a negative number' do
+			post = Post.new(caption1: 'test', caption2: 'test2',
+							picture1: File.new(Rails.root.join('spec/images/marco.png')),
+							picture2: File.new(Rails.root.join('spec/images/matt-leblanc.png')),
+							hire_charge: -10
+							)
+			expect(post).to have(1).error_on(:hire_charge)
+		end
+
+	end
+
 end
