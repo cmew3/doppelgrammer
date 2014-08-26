@@ -30,7 +30,7 @@ describe 'filtering by tags' do
 	it 'filters to show posts with selected tag' do
 		visit '/posts'
 		click_link '#jack'
-		expect(page).to have_content 'Posts tagged with #jack'
+		expect(page).to have_content 'Doppelgrammers of #jack'
 		expect(page).to have_content 'dave'
 		expect(page).not_to have_content 'tom'
 	end
@@ -38,7 +38,7 @@ describe 'filtering by tags' do
 
 	it 'filtered tags have pretty URLs' do
 		visit '/tags/jack'
-		expect(page).to have_content 'Posts tagged with #jack'
+		expect(page).to have_content 'Doppelgrammers of #jack'
 		expect(page).to have_content 'dave'
 		expect(page).not_to have_content 'tom'
 	end
