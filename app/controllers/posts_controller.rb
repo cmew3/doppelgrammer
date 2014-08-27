@@ -11,8 +11,13 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		Post.create(params[:post].permit(:title, :picture1, :picture2, :caption1, :caption2, :hire_charge)).create_tags
-		flash[:error]
-		redirect_to posts_path
+		@post = Post.create(params[:post].permit(:title, :picture1, :picture2, :caption1, :caption2, :hire_charge))
+		@post.create_tags
+		if @post.errors.any?
+			render :action => :new
+		else
+			redirect_to posts_path
+		end
+
 	end
 end
