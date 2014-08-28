@@ -1,9 +1,3 @@
-Pusher.log = function(message) {
-  if (window.console && window.console.log) {
-    window.console.log(message);
-  }
-};
-
 var pusher = new Pusher('501098e34ac10013bab3');
 var channel = pusher.subscribe('doppelgrammer_channel');
 channel.bind('new_post', function(data) {

@@ -3,10 +3,15 @@ require 'rails_helper'
 describe 'hiring doppelgrammers' do
 
 	context 'setting a price as part of a post' do
+	
+		let(:fake_class) { Class.new }
 
 		before(:each) do
 			dave = create(:user)
 			login_as dave
+			stub_const("NewPostNotifier", fake_class)
+			dummy_class = NewPostNotifier
+			dummy_class.stub_chain(:notify_new)
 		end
 
 		it 'has a default price of £50' do

@@ -16,10 +16,13 @@ describe 'adding a post' do
 	end
 
 	context 'when a user is logged in' do
-
+		let(:fake_class) { Class.new }
 		before(:each) do
 			dave = create(:user)
 			login_as dave
+			stub_const("NewPostNotifier", fake_class)
+			dummy_class = NewPostNotifier
+			dummy_class.stub_chain(:notify_new)
 		end
 
 		it 'prompts user to add a post' do
