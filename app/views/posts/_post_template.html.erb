@@ -17,7 +17,7 @@
 
 	  <div class='col-md-2'>
 	    <img class="new-post" src ="/assets/new_post.png">
-	    <div class="voting-box">
+	    <div class="voting-box-template">
 	      <div class='doppelYES'>       
 	        <span class = 'doppel-count yes-count'>0</span>
 	          <%= link_to '{{vote_link}}?direction=up', class: 'doppel-link doppelYES-link' do %>
@@ -35,8 +35,8 @@
 	    </div>
 
 	    <div class ='hire-button'>
-	      <p>Price: £{{hire_charge}}</p>
-	      <%= link_to "Hire Doppelgrammer", '{{hire_link}}' %>
+	      <p class="hire-charge">Price: £{{hire_charge}}</p>
+	      <%= link_to "Hire Doppelgrammer", '{{hire_link}}', class: "btn btn-primary hire-link" %>
 	    </div>
 	  </div>
 
