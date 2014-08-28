@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$('.doppel-link').on('click', function(event){
+	$('#posts-container').on('click', '.doppel-link', function(event){
 		var voteCount = $(this).siblings('.doppel-count')
 		event.preventDefault();
 		$.post(this.href, function(response){
