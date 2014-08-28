@@ -61,7 +61,7 @@
       <div class='img-thumbnail'>
         <img src= {{picture1}} class='first_upload img-responsive'>
       <h3>{{caption1}}</h3>
-      <a href= '#' >{{tag1}}</a>
+      <%= link_to '{{tag1}}', '{{tag1_link}}' %>
       </div>
     </div>
 
@@ -83,7 +83,7 @@
 
     <div class ='hire-button'>
       <p>Price: £{{hire_charge}}</p>
-      <a href= {{hire_link}}  >"Hire Doppelgrammer"</a>
+      <%= link_to "Hire Doppelgrammer", '{{hire_link}}' %>
     </div>
   </div>
 
@@ -91,7 +91,7 @@
       <div class='img-thumbnail'>
         <img src= {{picture2}} class='first_upload img-responsive'>
       <h3>{{caption2}}</h3>
-      <a href= '#' >{{tag2}}</a>
+       <%= link_to '{{tag2}}', '{{tag2_link}}' %>
       </div>
     </div>
 
