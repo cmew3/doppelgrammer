@@ -7,12 +7,9 @@ class NewPostNotifier
     		tag1: post.tags.first.text, tag2: post.tags.last.text, 
     		hire_charge: post.hire_charge,
     		hire_link: hire_link,
-    		# upvote_link: post_votes_path(@post, direction: 'up'),
-    		# downvote_link: post_votes_path(@post, direction: 'down'),
     		tag1_link: tag1_link,
     		tag2_link: tag2_link,
     		vote_link: vote_link
-
     		})
   	end
 end

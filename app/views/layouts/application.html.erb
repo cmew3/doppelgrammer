@@ -45,60 +45,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
   
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
+  <%=render partial: "posts/post_template" %>
 </body></html>
 
- <script type="x-tmpl-mustache" id="post-template">
-
-
-<section class="post-container new-post-container">
-<section class='row post-row'>  
-
-
-    <div class='grid-box col-md-5 col-sm-3'>
-      <div class='img-thumbnail'>
-        <img src= {{picture1}} class='first_upload img-responsive'>
-      <h3>{{caption1}}</h3>
-      <%= link_to '{{tag1}}', '{{tag1_link}}' %>
-      </div>
-    </div>
-
-
-
-  <div class='col-md-2'>
-    <img class="new-post" src ="/assets/new_post.png">
-    <div class="voting-box">
-      <div class='doppelYES'>       
-        <span class = 'doppel-count yes-count'>0</span>
-          <%= link_to '{{vote_link}}?direction=up', class: 'doppel-link doppelYES-link' do %>
-          <span class="glyphicon glyphicon-thumbs-up">
-        <% end %>
-      </div>
-
-
-      <div class='doppelNO'>
-        <span class = 'doppel-count no-count'>0</span>
-          <%= link_to '{{vote_link}}?direction=down', class: 'doppel-link doppelNO-link' do %>
-          <span class="glyphicon glyphicon-thumbs-down">
-         <% end %>
-      </div>
-    </div>
-
-    <div class ='hire-button'>
-      <p>Price: £{{hire_charge}}</p>
-      <%= link_to "Hire Doppelgrammer", '{{hire_link}}' %>
-    </div>
-  </div>
-
-    <div class='grid-box col-md-5 col-sm-3'>
-      <div class='img-thumbnail'>
-        <img src= {{picture2}} class='first_upload img-responsive'>
-      <h3>{{caption2}}</h3>
-       <%= link_to '{{tag2}}', '{{tag2_link}}' %>
-      </div>
-    </div>
-
-</section>
-</section>
-
- </script>
