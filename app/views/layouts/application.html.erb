@@ -71,13 +71,17 @@
     <div class="voting-box">
       <div class='doppelYES'>       
         <span class = 'doppel-count yes-count'>0</span>
+          <%= link_to '{{vote_link}}?direction=up', class: 'doppel-link doppelYES-link' do %>
           <span class="glyphicon glyphicon-thumbs-up">
+        <% end %>
       </div>
+
 
       <div class='doppelNO'>
         <span class = 'doppel-count no-count'>0</span>
+          <%= link_to '{{vote_link}}?direction=down', class: 'doppel-link doppelNO-link' do %>
           <span class="glyphicon glyphicon-thumbs-down">
-        
+         <% end %>
       </div>
     </div>
 

@@ -1,5 +1,5 @@
 class NewPostNotifier
-	def self.notify_new(post, hire_link, tag1_link, tag2_link)
+	def self.notify_new(post, hire_link, tag1_link, tag2_link, vote_link)
     	Pusher['doppelgrammer_channel'].trigger('new_post', {
     		picture1: post.picture1.url(:medium),
     		picture2: post.picture2.url(:medium), 
@@ -10,7 +10,8 @@ class NewPostNotifier
     		# upvote_link: post_votes_path(@post, direction: 'up'),
     		# downvote_link: post_votes_path(@post, direction: 'down'),
     		tag1_link: tag1_link,
-    		tag2_link: tag2_link
+    		tag2_link: tag2_link,
+    		vote_link: vote_link
 
     		})
   	end

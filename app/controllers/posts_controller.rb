@@ -18,7 +18,8 @@ class PostsController < ApplicationController
 		else
 			tag1_link, tag2_link = tag_path(@post.tags.first), tag_path(@post.tags.last)
 			hire_link = new_post_charge_path(@post)
-			NewPostNotifier.notify_new(@post, hire_link, tag1_link, tag2_link)
+			vote_link = post_votes_path(@post)
+			NewPostNotifier.notify_new(@post, hire_link, tag1_link, tag2_link, vote_link)
 			redirect_to posts_path
 		end
 
